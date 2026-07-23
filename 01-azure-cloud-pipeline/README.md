@@ -207,17 +207,22 @@ SQL assets:
   - Stored procedure: `sp_PopulateStarSchema`
   - Inserts/updates dimension members and refreshes fact data
 
-### SQL Schema Placeholder
+### SQL Schema
 
-![SQL Schema Placeholder](./images/PLACEHOLDER-sql-schema.png)
+![SQL Schema Placeholder](./images/SchemaTable.png)
 
-### Stored Procedure Placeholder
+### Stored Procedure
 
-![Stored Procedure Placeholder](./images/PLACEHOLDER-stored-procedure.png)
+![Stored Procedure Placeholder](./images/SchemaStored.png)
 
-> **Your explanation placeholder:**  
-> Explain key modeling choices, join logic, surrogate keys, and why this structure supports analytics.
+### Data Warehouse & Star Schema Transformation (Azure SQL)
 
+The SQL script transitions raw ingested data from temporary staging into a structured Star Schema optimized for analytics:
+
+1. **Staging Layer (`stage_*`):** Landing tables receiving transformed outputs directly from ADF Data Flows.
+2. **Dimension Table (`DimProduct`):** Stores unique product attribute definitions (`ProductID`, `ProductType`).
+3. **Fact Table (`FactManufacturingOperations`):** Stores core operational metrics, sensor readings, and failure flags linked to `DimProduct` via Foreign Key (`ProductKey`).
+4. **Stored Procedure (`sp_PopulateStarSchema`):** Automates dimensional modeling by updating dimensions, clearing old fact data, and joining staging streams into the final Fact table.
 ---
 
 ## Result
@@ -236,13 +241,3 @@ This project showcases practical capabilities in:
 > **Your explanation placeholder:**  
 > Add measurable outcomes (row counts processed, run time, quality improvements, reporting benefits).
 
----
-
-## How to Use This Project
-
-1. Deploy ADF resources using ARM templates in `adf-pipelines/arm_template/`
-2. Upload raw/split CSV files to your Blob containers
-3. Execute schema scripts in Azure SQL
-4. Run ADF pipeline `PL_TRANSFORM_MaintenanceProdQuality`
-5. Execute `sp_PopulateStarSchema`
-6. Connect BI/reporting layer to curated SQL model
