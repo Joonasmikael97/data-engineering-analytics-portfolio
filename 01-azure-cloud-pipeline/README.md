@@ -163,12 +163,11 @@ The Python script performs:
 2. Select and separate production, quality, and maintenance columns
 3. Export three CSV outputs for pipeline ingestion
 
-### Python Script / Output Placeholder
+### Python Script
 
-![Python Split Placeholder](./images/PLACEHOLDER-python-split-output.png)
+![Python Script Screenshot](./images/PythonScript.png)
 
-> **Your explanation placeholder:**  
-> Add your rationale for preprocessing outside ADF (e.g., modularity, reproducibility, clearer ingestion contracts).
+**Simple Python Script using pandas to split CSV file to 3 parts.**
 
 ---
 
@@ -184,9 +183,9 @@ The exported ARM template (`adf-pipelines/arm_template/ARMTemplateForFactory.jso
   - `DF_Clean_Production`
   - `DF_Clean_Quality`
 
-### ADF Pipeline Placeholder
+### ADF Pipeline
 
-![ADF Pipeline Placeholder](./images/PLACEHOLDER-adf-pipeline.png)
+![ADF Pipeline Placeholder](./images/DataFLow.png)
 
 ### Data Flow Placeholder
 
@@ -239,7 +238,7 @@ SQL assets:
 
 ---
 
-## Results & Portfolio Impact
+## Result
 
 This project showcases practical capabilities in:
 
@@ -265,11 +264,3 @@ This project showcases practical capabilities in:
 4. Run ADF pipeline `PL_TRANSFORM_MaintenanceProdQuality`
 5. Execute `sp_PopulateStarSchema`
 6. Connect BI/reporting layer to curated SQL model
-
----
-
-## Customization Notes
-
-- Replace every `PLACEHOLDER-*.png` with your real screenshots/diagrams in `/images`
-- Expand each **“Your explanation placeholder”** block with your personal project narrative
-- Keep this README as your main technical story for recruiters and reviewers
