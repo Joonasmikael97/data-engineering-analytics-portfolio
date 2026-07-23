@@ -17,8 +17,12 @@ Engineered an automated cloud ETL pipeline in Microsoft Azure to process and war
 
 Result
 
-Tech Stack
-Azure Data Factory | Azure Blob Storage | Azure SQL Database | Python | T-SQL | Power BI
+![Azure Data Factory](https://img.shields.io/badge/Azure_Data_Factory-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
+![Azure Blob Storage](https://img.shields.io/badge/Azure_Blob_Storage-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
+![Azure SQL](https://img.shields.io/badge/Azure_SQL-0078D4?style=flat-square&logo=microsoftsqlserver&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![T-SQL](https://img.shields.io/badge/T--SQL-CC292B?style=flat-square&logo=microsoftsqlserver&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
 
 Data used: 
 
