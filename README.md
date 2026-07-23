@@ -23,4 +23,4 @@ Azure Data Factory | Azure Blob Storage | Azure SQL Database | Python | T-SQL | 
 
 Data used: 
 
-[View Technical Deep-Dive](./01-azure-cloud-pipeline)
+[Project folder](./01-azure-cloud-pipeline)
