@@ -185,16 +185,16 @@ The exported ARM template (`adf-pipelines/arm_template/ARMTemplateForFactory.jso
 
 ### ADF Pipeline
 
-![ADF Pipeline Placeholder](./images/DataFLow.png)
+![ADF Pipeline Placeholder](./images/FactoryPipeline.png)
 
-### Data Flow Placeholder
+### Data Flow
 
-![ADF Data Flow Placeholder](./images/PLACEHOLDER-adf-dataflow.png)
+![ADF Data Flow Placeholder](./images/DataFlow.png)
 
-> **Your explanation placeholder:**  
-> Describe pipeline sequence, dependencies, data flow logic, and error handling/monitoring approach.
+### Data Transformation vs. Pipeline Orchestration
 
----
+* **Mapping Data Flow (Data Transformation):** Handles row-level logic. It ingests raw CSVs from Blob Storage, filters/cleans invalid `Product ID` records, and writes the output directly to Azure SQL staging tables.
+* **Pipeline Canvas (Workflow Orchestration):** Manages task execution order. It runs three cleaning Data Flows concurrently and triggers the SQL Stored Procedure only after all staging tables successfully complete.
 
 ## Data Warehouse Modeling (Azure SQL)
 
@@ -217,24 +217,6 @@ SQL assets:
 
 > **Your explanation placeholder:**  
 > Explain key modeling choices, join logic, surrogate keys, and why this structure supports analytics.
-
----
-
-## Data Flow Summary
-
-1. Raw manufacturing CSV lands in Blob Storage
-2. Domain CSVs are prepared (Production/Quality/Maintenance)
-3. ADF pipeline executes transformation data flows
-4. Clean records are loaded into SQL staging tables
-5. Stored procedure populates dimensional + fact tables
-6. Curated model is ready for BI reporting
-
-### Flow Placeholder
-
-![E2E Flow Placeholder](./images/PLACEHOLDER-end-to-end-flow.png)
-
-> **Your explanation placeholder:**  
-> Add throughput metrics, schedule frequency, and operational SLAs/KPIs.
 
 ---
 
