@@ -5,13 +5,12 @@ Welcome to my portfolio! This repository showcases end-to-end projects spanning 
 ---
 
 ## Table of Contents
-* Azure Manufacturing Data Pipeline
-* E-Commerce & Customer Analytics
-* [Contact](#-contact)
+- [Azure Manufacturing Data Pipeline](#azure-manufacturing-data-pipeline)
+- [E-Commerce & Customer Analytics](#e-commerce--customer-analytics)
 
 ---
 
-[Azure Manufacturing Data Pipeline](./01-azure-cloud-pipeline)
+### [Azure Manufacturing Data Pipeline](./01-azure-cloud-pipeline)
 
 Engineered an cloud ETL pipeline in Microsoft Azure to process and warehouse 10,000 equipment sensor telemetry records. Raw manufacturing logs covering process temperatures, rotational speed, torque, tool wear, and failure categories are preprocessed using Python, staged in Azure Blob Storage, transformed via Azure Data Factory Mapping Data Flows, and loaded into Azure SQL Database for operational analytics.
 
