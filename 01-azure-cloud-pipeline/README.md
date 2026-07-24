@@ -225,19 +225,9 @@ The SQL script transitions raw ingested data from temporary staging into a struc
 4. **Stored Procedure (`sp_PopulateStarSchema`):** Automates dimensional modeling by updating dimensions, clearing old fact data, and joining staging streams into the final Fact table.
 ---
 
-## Result
+## Dashboard
 
-This project showcases practical capabilities in:
 
-- Cloud ETL orchestration in Azure
-- Data modeling for analytics
-- SQL-based transformation and load patterns
-- Reproducible pipeline packaging via ARM templates
+Dashboard
 
-### Results / Dashboard Placeholder
-
-![Results Placeholder](./images/PLACEHOLDER-results-dashboard.png)
-
-> **Your explanation placeholder:**  
-> Add measurable outcomes (row counts processed, run time, quality improvements, reporting benefits).
 
