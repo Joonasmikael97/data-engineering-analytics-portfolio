@@ -1,6 +1,6 @@
 # Data Engineering & Analytics Portfolio
 
-Welcome to my portfolio! My name is Joonas, I've graduated from Turku University of Applied Sciences with Bachelor's degree on ICT Engineer. This repository showcases projects spanning **Data Engineering** (cloud pipelines, database design, ETL orchestration) and **Data Analytics / BI** (interactive dashboard design, UI/UX navigation, advanced DAX metrics).
+Welcome to my portfolio! My name is Joonas, I've graduated from Turku University of Applied Sciences with Bachelor's degree on ICT Engineering. This repository showcases projects spanning **Data Engineering** (cloud pipelines, database design, ETL orchestration) and **Data Analytics / BI** (interactive dashboard design, UI/UX navigation, advanced DAX metrics).
 
 ---
 
