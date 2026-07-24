@@ -1,4 +1,4 @@
-# ⚙️ Azure Manufacturing Data Pipeline
+# Azure Manufacturing Data Pipeline
 
 This project demonstrates an **Azure data engineering pipeline** that ingests raw manufacturing telemetry, transforms it, and loads it into an analytical model in Azure SQL Database for downstream reporting.
 
