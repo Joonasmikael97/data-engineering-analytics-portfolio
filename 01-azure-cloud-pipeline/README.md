@@ -230,4 +230,5 @@ The SQL script transitions raw ingested data from temporary staging into a struc
 
 Dashboard
 
+![PowerBiDashboard](./images/Dashboard.png)
 
