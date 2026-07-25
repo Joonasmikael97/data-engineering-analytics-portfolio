@@ -41,7 +41,6 @@ Data used: [predictive_maintenance.csv](./01-azure-cloud-pipeline/raw-data/predi
 
 Built an interactive Business Intelligence solution using Excel, Power BI, Power Query, M Language, and DAX to analyze over 540,000 multi-region transactions across 38 countries. Cleansed and transformed raw transactional records using Power Query with custom M scripts, built a star-schema data model, and engineered advanced DAX measures to analyze customer purchasing behavior, regional sales performance, retention cohorts, and Customer Lifetime Value (CLV).
 
-Result:
 
 Tech: </br>
 
@@ -51,5 +50,12 @@ Tech: </br>
 ![M Language](https://img.shields.io/badge/M_Language-0078D4?style=flat-square&logo=microsoft&logoColor=white)
 ![DAX](https://img.shields.io/badge/DAX-F2C811?style=flat-square&logo=powerbi&logoColor=black)
 
-Data used:
+Data used: [Online_Retail](./02-powerbi-customer-analytics/data/Online_Retail.xlsx)
+
+
+
+### Dashboard Showcase
+
+<img src="./02-powerbi-customer-analytics/images/PowerBIoverview2011.png" alt="DashboardShowCase" style="width: 50%;">
+<img src="./02-powerbi-customer-analytics/images/CustomerInsight2011.png" alt="DashboardShowCase" style="width: 50%;">
 
