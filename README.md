@@ -24,7 +24,7 @@ Tech: </br>
 ![T-SQL](https://img.shields.io/badge/T--SQL-CC292B?style=flat-square&logo=microsoftsqlserver&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
 
-Data used: [predictive_maintenance.csv](raw-data/predictive_maintenance.csv)
+Data used: [predictive_maintenance.csv](./01-azure-cloud-pipeline/raw-data/predictive_maintenance.csv)
 
 
 ### Dashboard Showcase
