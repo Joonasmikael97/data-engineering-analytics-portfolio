@@ -1,0 +1,69 @@
+import requests
+from datetime import datetime, timezone
+from pyspark.sql.functions import current_timestamp
+from pyspark.sql.types import StructType, StructField, StringType, DoubleType, LongType
+
+FINNHUB_API_KEY = dbutils.secrets.get(scope="hubapikey", key="hubapikey")
+tickers = ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "TSLA"]
+records = []
+request_time = datetime.now(timezone.utc)
+
+for ticker in tickers:
+    url = f"https://finnhub.io/api/v1/quote?symbol={ticker}&token={FINNHUB_API_KEY}"
+    response = requests.get(url, timeout=10)
+    data = response.json()
+
+    raw_quote_timestamp = int(data.get("t") or request_time.timestamp())
+    daily_quote_timestamp = int(
+        datetime.fromtimestamp(raw_quote_timestamp, timezone.utc)
+        .replace(hour=0, minute=0, second=0, microsecond=0)
+        .timestamp()
+    )
+
+    records.append({
+        "ticker": ticker,
+        "current_price": float(data["c"]),
+        "high": float(data.get("h", data["c"])),
+        "low": float(data.get("l", data["c"])),
+        "open": float(data.get("o", data["c"])),
+        "previous_close": float(data["pc"]),
+        "quote_timestamp": daily_quote_timestamp,
+    })
+
+schema = StructType([
+    StructField("ticker", StringType(), True),
+    StructField("current_price", DoubleType(), True),
+    StructField("high", DoubleType(), True),
+    StructField("low", DoubleType(), True),
+    StructField("open", DoubleType(), True),
+    StructField("previous_close", DoubleType(), True),
+    StructField("quote_timestamp", LongType(), True)
+])
+
+df_raw = spark.createDataFrame(records, schema=schema).dropDuplicates(["ticker", "quote_timestamp"])
+df_bronze = df_raw.withColumn("ingestion_time", current_timestamp())
+
+spark.sql("""
+CREATE TABLE IF NOT EXISTS default.bronze_stock_quotes (
+    ticker STRING,
+    current_price DOUBLE,
+    high DOUBLE,
+    low DOUBLE,
+    open DOUBLE,
+    previous_close DOUBLE,
+    quote_timestamp BIGINT,
+    ingestion_time TIMESTAMP
+) USING DELTA
+""")
+
+df_bronze.createOrReplaceTempView("bronze_stock_quotes_batch")
+
+spark.sql("""
+MERGE INTO default.bronze_stock_quotes AS target
+USING bronze_stock_quotes_batch AS source
+ON target.ticker = source.ticker AND target.quote_timestamp = source.quote_timestamp
+WHEN MATCHED THEN UPDATE SET *
+WHEN NOT MATCHED THEN INSERT *
+""")
+
+print("Bronze layer updated successfully.")
