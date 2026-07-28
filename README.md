@@ -26,7 +26,7 @@ Engineered a cloud ETL pipeline in Microsoft Azure to process and warehouse 10,0
 * **Dataset:** [predictive_maintenance.csv](./End-to-End%20Predictive%20Maintenance/raw-data/predictive_maintenance.csv)
 
 #### Dashboard Showcase
-<img src="./End-to-End%20Predictive%20Maintenance/images/Dashboard.png" alt="Predictive Maintenance Dashboard" width="600">
+<img src="./End-to-End%20Predictive%20Maintenance(ETL)/images/Dashboard.png" alt="Predictive Maintenance Dashboard" width="600">
 
 ---
 
