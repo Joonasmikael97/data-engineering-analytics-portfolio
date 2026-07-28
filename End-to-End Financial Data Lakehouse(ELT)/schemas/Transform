@@ -1,0 +1,37 @@
+%sql
+
+CREATE TABLE IF NOT EXISTS yfinanceworkspace.default.dim_company (
+    ticker STRING,
+    company_name STRING,
+    sector STRING
+);
+
+MERGE INTO yfinanceworkspace.default.dim_company AS target
+USING (
+    SELECT 'AAPL' AS ticker, 'Apple Inc.' AS company_name, 'Technology' AS sector UNION ALL
+    SELECT 'MSFT', 'Microsoft Corp.', 'Technology' UNION ALL
+    SELECT 'GOOGL', 'Alphabet Inc.', 'Communication Services' UNION ALL
+    SELECT 'AMZN', 'Amazon.com Inc.', 'Consumer Cyclical' UNION ALL
+    SELECT 'NVDA', 'NVIDIA Corp.', 'Technology' UNION ALL
+    SELECT 'TSLA', 'Tesla Inc.', 'Consumer Cyclical'
+) AS source
+ON target.ticker = source.ticker
+WHEN NOT MATCHED THEN INSERT *;
+
+
+CREATE OR REPLACE TABLE yfinanceworkspace.default.fact_stock_quotes AS
+SELECT 
+    s.ticker,
+    c.company_name,
+    c.sector,
+    s.quote_date,
+    s.current_price,
+    s.open_price,
+    s.high_price,
+    s.low_price,
+    s.previous_close,
+    s.daily_change_usd,
+    s.daily_return_pct,
+    s.intraday_volatility
+FROM yfinanceworkspace.default.silver_stock_quotes s
+LEFT JOIN yfinanceworkspace.default.dim_company c ON s.ticker = c.ticker;

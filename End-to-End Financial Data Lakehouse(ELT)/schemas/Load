@@ -1,0 +1,34 @@
+from pyspark.sql import Window
+from pyspark.sql.functions import col, from_unixtime, to_date, round as spark_round, current_timestamp, row_number
+
+bronze_df = spark.read.table("yfinanceworkspace.default.bronze_stock_quotes")
+
+bronze_latest_daily_df = (
+    bronze_df
+    .filter(col("current_price") > 0)
+    .withColumn("quote_date", to_date(from_unixtime(col("quote_timestamp"))))
+)
+
+latest_daily_window = Window.partitionBy("ticker", "quote_date").orderBy(
+    col("quote_timestamp").desc(),
+    col("ingestion_time").desc()
+)
+
+silver_df = (
+    bronze_latest_daily_df
+    .withColumn("row_num", row_number().over(latest_daily_window))
+    .filter(col("row_num") == 1)
+    .select(
+        col("ticker").cast("string"),
+        col("quote_date"),
+        spark_round(col("current_price"), 2).alias("current_price"),
+        spark_round(col("open"), 2).alias("open_price"),
+        spark_round(col("high"), 2).alias("high_price"),
+        spark_round(col("low"), 2).alias("low_price"),
+        spark_round(col("previous_close"), 2).alias("previous_close"),
+        spark_round(col("current_price") - col("previous_close"), 2).alias("daily_change_usd"),
+        spark_round(((col("current_price") - col("previous_close")) / col("previous_close")) * 100, 2).alias("daily_return_pct"),
+        spark_round(col("high") - col("low"), 2).alias("intraday_volatility"),
+        current_timestamp().alias("processed_at")
+    )
+)
