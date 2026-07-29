@@ -11,7 +11,7 @@ Welcome to my portfolio! My name is Joonas, and I hold a Bachelor's degree in IC
 
 ---
 
-### [End-to-End Predictive Maintenance (ETL)](./End-to-End%20Predictive%20Maintenance)
+### [End-to-End Predictive Maintenance (ETL)](./End-to-End%20Predictive%20Maintenance(ETL))
 
 Engineered a cloud ETL pipeline in Microsoft Azure to process and warehouse 10,000 equipment sensor telemetry records. Raw manufacturing logs covering process temperatures, rotational speed, torque, tool wear, and failure categories are preprocessed using Python, staged in Azure Blob Storage, transformed via Azure Data Factory Mapping Data Flows, and loaded into Azure SQL Database for operational analytics.
 
@@ -30,7 +30,7 @@ Engineered a cloud ETL pipeline in Microsoft Azure to process and warehouse 10,0
 
 ---
 
-### [End-to-End Financial Data Lakehouse (ELT)](./End-to-End%20Financial%20Data%20Lakehouse)
+### [End-to-End Financial Data Lakehouse (ELT)](./End-to-End%20Financial%20Data%20Lakehouse(ELT))
 
 Built an automated data lakehouse architecture processing daily stock market transactions from Finnhub API using Azure Databricks and PySpark. Implemented Medallion Architecture (Bronze, Silver, Gold layers) with Delta Lake for ACID transactions and structured the analytical data model into a Star Schema connected directly to Power BI for real-time executive market intelligence reporting.
 
