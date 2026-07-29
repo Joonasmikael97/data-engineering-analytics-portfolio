@@ -42,9 +42,11 @@ Built an automated data lakehouse architecture processing daily stock market tra
 ![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
 
 
+* **Data Source:** [Finnhub Stock API](https://finnhub.io/)
+
 
 #### Dashboard Showcase
-<img src="./End-to-End%20Financial%20Data%20Lakehouse/docs/dashboard_preview.png" alt="Financial Analytics Dashboard" width="600">
+Work in Progress
 
 ---
 
