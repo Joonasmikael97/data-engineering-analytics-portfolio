@@ -90,10 +90,12 @@ flowchart LR
 </ul>
 
 <h3>4. Dependency Gate (Databricks Workflows)</h3>
+
 <ul>
     <li><strong>Action:</strong> Databricks orchestrates the scripts sequentially on a strict Cron schedule (<code>0 30 16 ? * MON-FRI</code>).</li>
     <li><strong>Purpose:</strong> Runs daily at 16:30 EST (30 minutes after US market close) to guarantee all final trade settlements are captured and loaded in correct sequential order.</li>
 </ul>
+<img src="./images/ScheduledPipeline.png" alt="workflow" width="600">
 
 <h3>5. Analytics &amp; Visualization (Power BI)</h3>
 <ul>
@@ -131,14 +133,12 @@ flowchart LR
     <li><strong>Gold (Business-Level):</strong> Aggregated and structured specifically for Power BI consumption (<code>dim_company</code> and <code>fact_stock_quotes</code>).</li>
 </ol>
 
-<h3>PySpark Transformation Snippet</h3>
-<p><em>(Insert Screenshot or Code Block of your PySpark Transform script here)</em></p>
-
 <hr>
 
 <h2>Orchestration (Databricks Workflows)</h2>
 
 <p>The job execution sequence runs through the configured files:</p>
+<img src="./images/workflow.png" alt="workflow" width="600">
 <ul>
     <li><strong>Task 1:</strong> Execute <code>Extract</code>.</li>
     <li><strong>Task 2:</strong> Execute <code>Load</code> (Depends on Task 1).</li>
