@@ -167,7 +167,6 @@ flowchart LR
 <p><strong>Key Features:</strong></p>
 <ul>
     <li><strong>Dynamic Time Intelligence:</strong> Uses Relative Date slicers that automatically shift forward as the pipeline updates daily.</li>
-    <li><strong>Advanced DAX:</strong> Measures dynamically calculate <code>Latest Price</code> and <code>Daily Return %</code> based on the maximum ingested date.</li>
     <li><strong>UI/UX:</strong> Organized into three distinct zones: high-level KPI cards, a primary trend line chart for time-series analysis, and a detailed cross-company comparison matrix.</li>
 </ul>
 
