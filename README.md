@@ -46,9 +46,9 @@ Built an automated data lakehouse architecture processing daily stock market tra
 
 
 #### Dashboard Showcase
-Work in Progress
+<img src="./End-to-End%20Financial%20Data%20Lakehouse(ELT)/images/StockmarketBI.png" alt="StockmarketBI" width="600">
 
----
+
 
 ### [E-Commerce & Customer Analytics](./E-Commerce%20%26%20Customer%20Analytics)
 
