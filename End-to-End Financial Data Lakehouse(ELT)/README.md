@@ -171,4 +171,4 @@ flowchart LR
     <li><strong>UI/UX:</strong> Organized into three distinct zones: high-level KPI cards, a primary trend line chart for time-series analysis, and a detailed cross-company comparison matrix.</li>
 </ul>
 
-<p><em>(Insert Dashboard Screenshot Here)</em></p>
+![PowerBIDashboard](./images/StockmarketBI.png)
